@@ -1,0 +1,15 @@
+This directory should contain the frozen test fixture and the PyTorch reference
+traces. If it is empty apart from this file, the package is incomplete and the
+comparison cannot run.
+
+Expected contents:
+
+  fixture.json              31 cases with exact token IDs and checkpoint identity
+  tokens.tsv                the same token IDs, one line per case
+  weights_fingerprint.json  per-tensor checksums of the pinned GPT-2 weights
+  traces/cpu/*.ftrc         31 PyTorch CPU reference traces
+  traces/cuda/*.ftrc        31 PyTorch CUDA reference traces
+
+Forge's output goes in traces/forge/ alongside them.
+
+Delete this file once the fixture is in place.

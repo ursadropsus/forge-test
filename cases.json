@@ -1,0 +1,213 @@
+{
+  "schema_version": "1.0",
+  "_README": [
+    "Target cases come from probe v9 exact certificates, the v2 phrase-enrichment",
+    "screen, the Neuroscope spot check, and probe v11's factorial panel.",
+    "",
+    "N541 peaks on the FINAL token of the certificate (80/80 routes in v9), which",
+    "is what makes peak position sharply defined and therefore gradeable.",
+    "",
+    "t08, t10, t11, t12 are v11 strings with MEASURED peaks and signed margins",
+    "recorded in each note. They serve two purposes: they are the only cases where",
+    "N541 fires but does NOT win layer 5 (so they test the destination path",
+    "independently of N541's own trace), and their recorded values let you check",
+    "this exporter against your existing v11 results before Forge is involved.",
+    "",
+    "Control, structural and bos_pair cases probe alignment, tokenizer and BOS",
+    "handling. s03 is an accidental N541 hit (peaks on ' time' completing",
+    "'one at a time') and is kept deliberately."
+  ],
+  "cases": [
+    {
+      "id": "t00",
+      "role": "target",
+      "note": "v9 certificate ' up and down' (11 hits); peak expected on ' down', mid-sequence",
+      "text": "He paced up and down the deck for an hour."
+    },
+    {
+      "id": "t01",
+      "role": "target",
+      "note": "v9 certificate ' here and there' (8 hits)",
+      "text": "She glanced here and there among the crates."
+    },
+    {
+      "id": "t02",
+      "role": "target",
+      "note": "v9 certificate ' now and then' (10 hits); lowercase, mid-sentence",
+      "text": "The lamp flickered now and then."
+    },
+    {
+      "id": "t03",
+      "role": "target",
+      "note": "v9 certificate 'one by one'",
+      "text": "They filed past one by one."
+    },
+    {
+      "id": "t04",
+      "role": "target",
+      "note": "v9 certificate 'right and left'",
+      "text": "He looked right and left before crossing."
+    },
+    {
+      "id": "t05",
+      "role": "target",
+      "note": "'over and over' - absent from the Melville sample, found cross-corpus in v2 screen",
+      "text": "The bell rang over and over."
+    },
+    {
+      "id": "t06",
+      "role": "target",
+      "note": "'top to bottom' - connector 'to' not 'and'; from the Neuroscope spot check",
+      "text": "He searched the house from top to bottom."
+    },
+    {
+      "id": "t07",
+      "role": "target",
+      "note": "certificate at the very end of a long carrier; tests position drift",
+      "text": "The ship had been provisioned, the charts checked twice, and the crew assembled on deck long before dawn, and still the captain walked up and down."
+    },
+    {
+      "id": "t08",
+      "role": "target",
+      "note": "v11 THEY_SAID novel repetition. MEASURED v11: peak 2.780, signed margin -0.024. Knife-edge loss - the most sensitive destination case available.",
+      "text": "they said pocket by pocket"
+    },
+    {
+      "id": "t09",
+      "role": "target",
+      "note": "minimal pair with t00: construction broken, N541 should stay near zero",
+      "text": "He paced up and across the deck for an hour."
+    },
+    {
+      "id": "t10",
+      "role": "target",
+      "note": "v11 THEY_SAID novel repetition. MEASURED v11: peak 2.474, signed margin -0.110.",
+      "text": "they said marble after marble"
+    },
+    {
+      "id": "t11",
+      "role": "target",
+      "note": "v11 THEY_SAID novel repetition. MEASURED v11: peak 2.212, signed margin -0.314.",
+      "text": "they said candle after candle"
+    },
+    {
+      "id": "t12",
+      "role": "target",
+      "note": "v11: MEASURED peak 3.122, destination won by neuron 2659, not 541. Carrier not stated in the writeup - bare form assumed, may need correcting.",
+      "text": "hammer and hammer"
+    },
+    {
+      "id": "t13",
+      "role": "target",
+      "note": "v11 known-related distinct members, one of only 4 route wins: 'they said day after night'.",
+      "text": "they said day after night"
+    },
+    {
+      "id": "c00",
+      "role": "control",
+      "note": "generic prose, no expected N541 involvement",
+      "text": "The committee met on Thursday and agreed to postpone the vote until the following session."
+    },
+    {
+      "id": "c01",
+      "role": "control",
+      "note": "technical prose",
+      "text": "Each buffer is allocated once at start-up and reused across every subsequent forward pass."
+    },
+    {
+      "id": "c02",
+      "role": "control",
+      "note": "narrative prose",
+      "text": "She left the house before dawn, walked to the river, and waited for the ferry to arrive."
+    },
+    {
+      "id": "c03",
+      "role": "control",
+      "note": "list-like text",
+      "text": "flour, sugar, two eggs, a pinch of salt, butter, and half a cup of warm milk"
+    },
+    {
+      "id": "c04",
+      "role": "control",
+      "note": "numbers and units",
+      "text": "The reading rose from 3.14 to 27.5 over 1,024 seconds, then fell back to 0.001."
+    },
+    {
+      "id": "s00",
+      "role": "structural",
+      "note": "single token after BOS; shortest legal case",
+      "text": " the"
+    },
+    {
+      "id": "s01",
+      "role": "structural",
+      "note": "pure punctuation",
+      "text": "... --- ,,, ;;; !!! ???"
+    },
+    {
+      "id": "s02",
+      "role": "structural",
+      "note": "repeated token; exposes position-dependent drift",
+      "text": "the the the the the the the the the the the the the the the the"
+    },
+    {
+      "id": "s03",
+      "role": "structural",
+      "note": "long window; accumulates numerical divergence",
+      "text": "In the beginning the model reads one token at a time, and each layer adds its own small contribution to the residual stream. The attention heads move information between positions, while the multi-layer perceptron transforms information within a position. Over many layers these two operations compose into behaviour that is difficult to predict from either one alone. This paragraph exists only to produce a long enough window that any accumulating numerical divergence between two implementations has room to become visible before the sequence ends, so it continues past the point where it has anything new to say, deliberately and at some length, until the token count is comfortably large."
+    },
+    {
+      "id": "s04",
+      "role": "structural",
+      "note": "leading whitespace; tokenizer boundary probe",
+      "text": "   leading spaces before the first word"
+    },
+    {
+      "id": "s05",
+      "role": "structural",
+      "note": "non-ascii; tokenizer byte-level probe",
+      "text": "naïve café résumé — 日本語 — Ω≈ç√"
+    },
+    {
+      "id": "s06",
+      "role": "structural",
+      "note": "newlines inside the text",
+      "text": "first line\nsecond line\n\nfourth line"
+    },
+    {
+      "id": "s07",
+      "role": "structural",
+      "note": "BOS-only sequence; degenerate but legal",
+      "text": "",
+      "prepend_bos": true
+    },
+    {
+      "id": "b00",
+      "role": "bos_pair",
+      "note": "paired with b01: identical text, BOS present",
+      "text": "Attention is the operation that moves information between token positions.",
+      "prepend_bos": true
+    },
+    {
+      "id": "b01",
+      "role": "bos_pair",
+      "note": "paired with b00: identical text, BOS absent",
+      "text": "Attention is the operation that moves information between token positions.",
+      "prepend_bos": false
+    },
+    {
+      "id": "b02",
+      "role": "bos_pair",
+      "note": "paired with b03: short text where BOS effect is largest",
+      "text": " river",
+      "prepend_bos": true
+    },
+    {
+      "id": "b03",
+      "role": "bos_pair",
+      "note": "paired with b02: identical text, BOS absent",
+      "text": " river",
+      "prepend_bos": false
+    }
+  ]
+}

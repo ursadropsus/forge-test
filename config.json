@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "checkpoint": {
+    "repo_id": "gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "weight_file": "model.safetensors",
+    "_comment": "Forge must be pointed at THIS revision, not the moving main URL."
+  },
+  "conventions": {
+    "bos_id": 50256,
+    "prepend_bos_default": true,
+    "d_mlp": 3072,
+    "n_ctx": 1024,
+    "hook_site": "post-GELU, pre-c_proj MLP activation",
+    "hf_module_path": "transformer.h[{layer}].mlp.act",
+    "forge_symbol": "gelu (inside the transformer block, after m_gelu(l1))",
+    "expected_activation_fn": "gelu_new",
+    "single_forward_pass": true,
+    "_comment": "Traces are from ONE prefill pass over the full token sequence. No sampling, no KV-cache incremental decode, no generation."
+  },
+  "capture_layers": [5],
+  "targets": [
+    {"name": "N541", "layer": 5, "neuron": 541, "role": "primary"}
+  ],
+  "tolerance": {
+    "envelope_multiplier": 4.0,
+    "abs_floor": 1e-4,
+    "rel_floor": 1e-3,
+    "_comment": "Tolerance per case = max(envelope_multiplier * max|cpu_ref - cuda_ref|, abs_floor). If no second reference backend is available, the abs/rel floors are used alone and the report says so."
+  },
+  "criteria": {
+    "peak_position_must_match": true,
+    "destination_must_match": true,
+    "min_margin_ratio": 10.0,
+    "top_k": 20,
+    "min_topk_overlap": 18,
+    "min_spearman_top50": 0.9,
+    "_comment": "min_margin_ratio: a destination decision only counts as testable when (top1 - top2) of the per-neuron maxima exceeds min_margin_ratio x tolerance. Cases below that are reported as INDETERMINATE, not as failures."
+  }
+}
