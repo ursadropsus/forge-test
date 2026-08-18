@@ -15,7 +15,7 @@ Run one executable on 31 frozen token sequences and send back the folder it
 writes. If you have Forge building already, this is about twenty minutes,
 most of which is a rebuild.
 
-If it looks like a waste of your time, it probably is — say so and I'll drop it.
+If it looks like a waste of your time, it probably is — I'm a non-expert working with AI, and may have missed something obvious.
 I'd rather you make that call than have me guess.
 
 ---
