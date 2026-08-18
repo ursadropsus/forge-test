@@ -107,8 +107,7 @@ knows which layer it's in. Your working program is untouched.
 
 ## Things you should know before spending time on it
 
-**The driver compiles but has never run.** I don't have a machine that can build
-Forge. `conformance.cpp` compiles clean against your headers with your flags,
+**The driver compiles but has never run.** `conformance.cpp` compiles clean against your headers with your flags,
 which means the API calls are right, but that's all it means. If the first run
 fails on a shape assertion or a bad flag, that's my bug, not Forge's.
 
