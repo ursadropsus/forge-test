@@ -1,0 +1,198 @@
+{
+  "checkpoint": {
+    "repo_id": "gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "weight_file": "model.safetensors",
+    "_comment": "Forge must be pointed at THIS revision, not the moving main URL.",
+    "file": {
+      "path": "C:\\Users\\ursad\\.cache\\huggingface\\hub\\models--gpt2\\snapshots\\607a30d783dfa663caf39e06633721c8d4cfcd7e\\model.safetensors",
+      "bytes": 548105171,
+      "sha256": "248dfc3911869ec493c76e65bf2fcf7f615828b0254c12b473182f0f81d3a707"
+    }
+  },
+  "note": "sum/sumsq/min/max are orientation-invariant and should match Forge exactly (computed in float64). fnv1a64_hf_layout only matches if Forge stores the tensor in the same layout.",
+  "tensors": {
+    "transformer.wte.weight": {
+      "shape": [
+        50257,
+        768
+      ],
+      "count": 38597376,
+      "sum": 14659.963537598722,
+      "sumsq": 796980.0280027259,
+      "min": -1.2698166370391846,
+      "max": 1.785156488418579,
+      "fnv1a64_hf_layout": "ed5dd59ae0f9ca1c"
+    },
+    "transformer.wpe.weight": {
+      "shape": [
+        1024,
+        768
+      ],
+      "count": 786432,
+      "sum": -533.7645937957449,
+      "sumsq": 11838.635065044584,
+      "min": -4.538113594055176,
+      "max": 4.065310955047607,
+      "fnv1a64_hf_layout": "c32aaafcade38764"
+    },
+    "transformer.ln_f.weight": {
+      "shape": [
+        768
+      ],
+      "count": 768,
+      "sum": 1157.997045241762,
+      "sumsq": 3230.25741289698,
+      "min": 0.004427497740834951,
+      "max": 17.4193172454834,
+      "fnv1a64_hf_layout": "7bf8bab538ddac4c"
+    },
+    "transformer.ln_f.bias": {
+      "shape": [
+        768
+      ],
+      "count": 768,
+      "sum": -2.4103415521385614,
+      "sumsq": 135.07900431605015,
+      "min": -4.191765308380127,
+      "max": 7.368323802947998,
+      "fnv1a64_hf_layout": "caa3a4a59c1d8670"
+    },
+    "transformer.h.5.ln_1.weight": {
+      "shape": [
+        768
+      ],
+      "count": 768,
+      "sum": 286.55575666576624,
+      "sumsq": 108.47456048224589,
+      "min": 0.08637669682502747,
+      "max": 0.7687034010887146,
+      "fnv1a64_hf_layout": "6f1413a5c070565a"
+    },
+    "transformer.h.5.ln_1.bias": {
+      "shape": [
+        768
+      ],
+      "count": 768,
+      "sum": 9.121035570678941,
+      "sumsq": 1.9548611695794642,
+      "min": -0.45063841342926025,
+      "max": 1.0794568061828613,
+      "fnv1a64_hf_layout": "cd53b0ad60b1d379"
+    },
+    "transformer.h.5.attn.c_attn.weight": {
+      "shape": [
+        768,
+        2304
+      ],
+      "count": 1769472,
+      "sum": -191.93718405126197,
+      "sumsq": 28996.78953050348,
+      "min": -1.3923866748809814,
+      "max": 1.3316092491149902,
+      "fnv1a64_hf_layout": "83bfc1526a9db0b3"
+    },
+    "transformer.h.5.attn.c_attn.bias": {
+      "shape": [
+        2304
+      ],
+      "count": 2304,
+      "sum": 2.4088366348223644,
+      "sumsq": 22.68233062770299,
+      "min": -0.5593916773796082,
+      "max": 0.4744223356246948,
+      "fnv1a64_hf_layout": "1bd8de2fe3c1d585"
+    },
+    "transformer.h.5.attn.c_proj.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "count": 589824,
+      "sum": 6.481457319459317,
+      "sumsq": 5186.741087103677,
+      "min": -1.9833359718322754,
+      "max": 1.6892977952957153,
+      "fnv1a64_hf_layout": "2f79172e36af166c"
+    },
+    "transformer.h.5.attn.c_proj.bias": {
+      "shape": [
+        768
+      ],
+      "count": 768,
+      "sum": -0.8973900741839316,
+      "sumsq": 9.417966651015366,
+      "min": -0.7029849886894226,
+      "max": 0.593902587890625,
+      "fnv1a64_hf_layout": "b7eac7c83d4cc296"
+    },
+    "transformer.h.5.ln_2.weight": {
+      "shape": [
+        768
+      ],
+      "count": 768,
+      "sum": 214.27355097606778,
+      "sumsq": 61.8152070612576,
+      "min": 0.04284697026014328,
+      "max": 1.4179682731628418,
+      "fnv1a64_hf_layout": "80e44835fa56a89b"
+    },
+    "transformer.h.5.ln_2.bias": {
+      "shape": [
+        768
+      ],
+      "count": 768,
+      "sum": 6.260713195748394,
+      "sumsq": 0.8762052244956193,
+      "min": -0.3045385777950287,
+      "max": 0.3178199529647827,
+      "fnv1a64_hf_layout": "19ba94c5ca6d74bf"
+    },
+    "transformer.h.5.mlp.c_fc.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "count": 2359296,
+      "sum": -9894.598334659013,
+      "sumsq": 37919.2113210622,
+      "min": -1.9645612239837646,
+      "max": 1.761718988418579,
+      "fnv1a64_hf_layout": "f2ec17d51c235eae"
+    },
+    "transformer.h.5.mlp.c_fc.bias": {
+      "shape": [
+        3072
+      ],
+      "count": 3072,
+      "sum": -261.1981381594028,
+      "sumsq": 46.53827504184591,
+      "min": -0.4335050880908966,
+      "max": 0.6700983047485352,
+      "fnv1a64_hf_layout": "713797a1dc378896"
+    },
+    "transformer.h.5.mlp.c_proj.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "count": 2359296,
+      "sum": 273.65151156818513,
+      "sumsq": 22362.313300741393,
+      "min": -2.840672254562378,
+      "max": 2.7328920364379883,
+      "fnv1a64_hf_layout": "2289e797541e5d93"
+    },
+    "transformer.h.5.mlp.c_proj.bias": {
+      "shape": [
+        768
+      ],
+      "count": 768,
+      "sum": 0.7321225482592126,
+      "sumsq": 8.69257605667941,
+      "min": -0.7120057344436646,
+      "max": 1.2525707483291626,
+      "fnv1a64_hf_layout": "0632695ad4ff8b44"
+    }
+  }
+}
