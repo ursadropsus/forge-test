@@ -12,4 +12,4 @@ Expected contents:
 
 Forge's output goes in traces/forge/ alongside them.
 
-Delete this file once the fixture is in place.
+
